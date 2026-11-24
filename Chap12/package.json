@@ -1,0 +1,50 @@
+{
+  "name": "chap10",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/app.ts",
+    "build": "tsc",
+    "start": "node dist/app.js",
+    "db:migrate": "npx prisma migrate dev",
+    "db:generate": "npx prisma generate",
+    "db:studio": "npx prisma studio",
+    "db:seed": "tsx prisma/seed.ts",
+    "db:generate:sql": "npx prisma generate --sql",
+    "test": "vitest run src/__tests__/unit",
+    "test:watch": "vitest src/__tests__/unit",
+    "test:integration": "dotenv -e .env.test -- vitest run src/__tests__/integration"
+  },
+  "prisma": {
+    "seed": "tsd prisma/seed.ts"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.8.0",
+    "@prisma/client": "^7.8.0",
+    "argon2": "^0.45.2",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "5.2.1",
+    "express-rate-limit": "^8.7.5",
+    "helmet": "^8.3.0",
+    "jose": "^6.2.18",
+    "pg": "^8.20.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.10",
+    "@types/cors": "^2.8.19",
+    "@types/express": "5.0.6",
+    "@types/node": "25.6.0",
+    "@types/pg": "^8.20.0",
+    "@types/supertest": "^7.2.0",
+    "dotenv-cli": "^8.0.0",
+    "prisma": "^7.8.0",
+    "supertest": "^7.2.2",
+    "tsx": "4.21.0",
+    "typescript": "6.0.3",
+    "vitest": "^4.1.5",
+    "vitest-mock-extended": "^4.0.0"
+  }
+}

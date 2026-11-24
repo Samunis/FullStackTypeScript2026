@@ -1,0 +1,53 @@
+{
+  "name": "chap11-auth-api",
+  "version": "1.0.0",
+  "description": "Express + Prisma + PostgreSQL API with JWT authentication and role-based authorization (Chapter 11)",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "typecheck": "tsc --noEmit",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev",
+    "db:seed": "prisma db seed",
+    "test": "npm run test:unit && npm run test:integration",
+    "test:unit": "vitest run src/tests/unit",
+    "test:integration": "dotenv -e .env.test -- prisma migrate deploy && dotenv -e .env.test -- vitest run src/tests/integration"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.0.0",
+    "@prisma/client": "^7.0.0",
+    "argon2": "^0.44.0",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "helmet": "^8.1.0",
+    "jose": "^6.1.0",
+    "zod": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.9",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.0.0",
+    "@types/supertest": "^6.0.3",
+    "dotenv-cli": "^10.0.0",
+    "prisma": "^7.0.0",
+    "supertest": "^7.1.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0",
+    "vitest": "^3.2.0",
+    "vitest-mock-extended": "^3.1.0"
+  },
+  "allowScripts": {
+    "argon2@0.44.0": true,
+    "prisma@7.10.1": true,
+    "@prisma/engines@7.10.1": true,
+    "esbuild@0.28.2": true
+  }
+}
